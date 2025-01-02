@@ -12,6 +12,7 @@ Cause of Race Conditions:
 These variables are shared resources accessed by multiple threads without synchronization. Since the operations (+= and -=) are not atomic, they result in overlapping reads and writes, leading to unpredictable final values.
 
 '''python
+
 gold_price = 1500
 gold_volume = 100
 
@@ -24,6 +25,7 @@ def decrement_price():
     global gold_price
     for _ in range(100000):
        gold_price -= 1 
+       
 '''
 
 This block demonstrates how simultaneous access to gold_price by two functions creates a race condition.
