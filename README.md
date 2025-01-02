@@ -10,7 +10,7 @@ gold_price – Simultaneously modified by increment_price and decrement_price fu
 gold_volume – Modified concurrently by increment_volume and decrement_volume threads.
 Cause of Race Conditions:
 These variables are shared resources accessed by multiple threads without synchronization. Since the operations (+= and -=) are not atomic, they result in overlapping reads and writes, leading to unpredictable final values.
-'''
+'''python
 gold_price = 1500
 gold_volume = 100
 
